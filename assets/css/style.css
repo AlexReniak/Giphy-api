@@ -1,8 +1,12 @@
+body {
+  background: #ebfafa;
+}
+
 .jumbotron {
   border-radius: 0px;
 }
 
-.gifs {
+img {
   width: 200px;
   margin: 10px;
 }

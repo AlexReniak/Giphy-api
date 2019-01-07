@@ -1,31 +1,32 @@
 // declare variables
-// create an array of a few starting points that user can view
+// create an array of a few starting points/topics that user can view
 // create function to send request to api for data
 // create for loop to take in data sent back and attach it to html
-// create function for buttons
+// create function for buttons to be displayed
+// create a click function for the document for still/animated gif images
 // loop within the array of gifs
 // create function for when a button is clicked
+// remove previous gifs and replace with new ones
+
+
+// Two problems so far:
+//#1 -  When there is search input, it adds the button, but does not display the gifs for the input
+//#2 - if a button is clicked, the old gifs do not disappear even though there is a .empty()
 
 
 // variables
-var topicsArr = ["NHL","NBA", "NFL", "MLB"];
-var gifRating = "G";
-var searchText = "sports";
+var topicsArr = ["NHL","NBA", "MLS", "NFL", "MLB"];
+var gifRating = "PG-13";
+var searchText;
 var queryURL;
 var gifLimit = "10"
-/* $("#search-button").on("click", function(event){
-  event.preventDefault();
-  var searchText = $("#search-input").val()
-}) */
 
 // function for displaying gifs
 
 displayGifs();
 function displayGifs() {
 
-  // queryURL = "https://api.giphy.com/v1/gifs/search?api_key=hoiHN7H8yR3wZoh7U5Z3geXeCZ2J24ei&q=trump&limit=10&offset=0&rating=G&lang=en"
-
-/*  queryURL = "https://api.giphy.com/v1/gifs/search?api_key=hoiHN7H8yR3wZoh7U5Z3geXeCZ2J24ei&q=" + searchText + "&limit=10&offset=0&rating=" + gifRating + "&lang=en" */
+searchText = $(this).attr("data-name");
 
 queryURL = "https://api.giphy.com/v1/gifs/search";
 queryURL += "?" + $.param ({
@@ -57,17 +58,17 @@ $.ajax({
 
   gifDiv.append(image);
  
-  $("#gif-view").append(gifDiv);
+  $("#gif-view").prepend(gifDiv);
   }
 
-})
+});
 
-// wrap images in one div class and reference the class of the div
+};
 
-}
-
+//creates buttons under search bar
 function renderButtons() {
-// empties other gifs
+// empties other gifs on page and adds a button for what was just searched/whatever button was clicked
+  $("#gif-buttons").empty();
   $("#gif-view").empty();
 
 // adds buttons to top of page
@@ -77,7 +78,7 @@ function renderButtons() {
   }
 }
 
-// on click function when the user searches
+// on click function when the user searches for a gif(s)
 $("#search-button").on("click", function(event) {
   event.preventDefault();
 
@@ -89,9 +90,11 @@ $("#search-button").on("click", function(event) {
 
 });
 
-$(document).on("click", ".gif-btn", displayGifs);
-
-$(".gif").on("click", function() {
+// run displayGif variable when gif button is clicked
+$(document).on("click", ".gif-btn", displayGifs)
+  
+// on click function to change the image between still and animated
+$(document).on("click", ".gif", function() {
   
   var dataState = $(this).attr("data-state")
 
