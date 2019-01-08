@@ -1,5 +1,6 @@
 body {
-  background: #ebfafa;
+  /* background: #ebfafa; */
+  background-image: url(../images/cric-bg.png)
 }
 
 .jumbotron {
@@ -7,7 +8,7 @@ body {
 }
 
 img {
-  width: 200px;
+  width: 300px;
   margin: 10px;
 }
 

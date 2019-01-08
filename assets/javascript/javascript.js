@@ -14,7 +14,7 @@
 
 
 // variables
-var topicsArr = ["NHL","NBA", "MLS", "NFL", "MLB"];
+var topicsArr = ["Hockey","Basketball", "Soccer", "Football", "Baseball"];
 var gifRating = "PG-13";
 var searchText;
 var queryURL;
@@ -57,8 +57,14 @@ $.ajax({
   
 
   gifDiv.append(image);
+
+  if (i < 5) {
  
-  $("#gif-view").prepend(gifDiv);
+  $("#gif-view-left").prepend(gifDiv);
+  }
+  else {
+    $("#gif-view-right").prepend(gifDiv)
+  }
   }
 
 });
@@ -67,6 +73,7 @@ $.ajax({
 
 //creates buttons under search bar
 function renderButtons() {
+
 // empties other gifs on page and adds a button for what was just searched/whatever button was clicked
   $("#gif-buttons").empty();
 
@@ -92,7 +99,7 @@ $("#search-button").on("click", function(event) {
   }
 
   renderButtons();
-  
+
 });
 
 // run displayGif variable when gif button is clicked

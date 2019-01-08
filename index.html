@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<div class="jumbotron bg-dark text-light">
+<div class="jumbotron bg-primary text-light">
   <h1 class="text-center">
     Search for any gif!
   </h1> 
@@ -20,7 +20,7 @@
   <div class="form-group my-5">
       <input class="form-control" type="text" placeholder="Search" id="search-input">
       <div class="my-3">
-        <button type="submit" class="btn btn-warning" id="search-button">Search for Gifs!</button>
+        <button type="submit" class="btn btn-primary" id="search-button">Search for Gifs!</button>
       </div>
   </div>
   <div class="row my-5">
@@ -28,7 +28,11 @@
       <div id="gif-buttons"></div>
     </div>
   </div>
-  <div id="gif-view">
+  <div class="row">
+    <div class="col-sm-12 col-md-6" id="gif-view-left">
+    </div>
+    <div class="col-sm-12 col-md-6" id="gif-view-right">
+    </div>
   </div>
 </div>
 
