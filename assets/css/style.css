@@ -5,16 +5,29 @@ body {
 
 .jumbotron {
   border-radius: 0px;
+  text-shadow:
+    -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+  background-image: url(../images/download12341.jpg);
+  background-repeat: no-repeat;
 }
 
 img {
   width: 300px;
   margin: 10px;
+  border: solid gray 1px;
 }
 
 button {
-  border: solid black 1px;
+  border: solid gray 1px;
   margin: 5px;
-  background: blue;
+  background: #3333ff;
+  color: white;
+}
+
+p {
+  font-size: 20px;
   color: white;
 }

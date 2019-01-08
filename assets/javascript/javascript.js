@@ -24,7 +24,8 @@ var gifLimit = "10"
 
 displayGifs();
 function displayGifs() {
-$("#gif-view").empty();
+$("#gif-view-left").empty();
+$("#gif-view-right").empty();
 
 searchText = $(this).attr("data-name");
 
