@@ -23,16 +23,16 @@ var gifLimit = "10"
 // function for displaying gifs
 
 displayGifs();
-function displayGifs() {
+function displayGifs(searchInput) {
 $("#gif-view-left").empty();
 $("#gif-view-right").empty();
 
-searchText = $(this).attr("data-name");
+// searchText = $(this).attr("data-name");
 
 queryURL = "https://api.giphy.com/v1/gifs/search";
 queryURL += "?" + $.param ({
   "api_key": "hoiHN7H8yR3wZoh7U5Z3geXeCZ2J24ei",
-  "q": searchText,
+  "q": searchInput,
   "rating": gifRating,
   "limit": gifLimit
 }) 
@@ -99,7 +99,11 @@ $("#search-button").on("click", function(event) {
     topicsArr.push(gif);
   }
 
+  displayGifs(gif)
+
   renderButtons();
+
+  $("#search-input").val("")
 
 });
 
@@ -124,5 +128,7 @@ $(document).on("click", ".gif", function() {
   }
 
 });
+
+
 
 renderButtons();
