@@ -1,6 +1,8 @@
 body {
-  /* background: #ebfafa; */
-  background-image: url(../images/cric-bg.png)
+  background-image: url(../images/download.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center
 }
 
 .jumbotron {
@@ -10,8 +12,8 @@ body {
     1px -1px 0 #000,
     -1px 1px 0 #000,
     1px 1px 0 #000;
-  background-image: url(../images/download12341.jpg);
-  background-repeat: no-repeat;
+  background-image: url(../images/cric-bg.png);
+
 }
 
 img {
@@ -29,5 +31,10 @@ button {
 
 p {
   font-size: 20px;
+  color: white;
+}
+
+#search-button {
+  background: #3333ff;
   color: white;
 }
