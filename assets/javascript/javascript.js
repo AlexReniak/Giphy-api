@@ -9,25 +9,17 @@
 // remove previous gifs and replace with new ones
 
 
-// Two problems:
-//#1 - When there is search input, it adds the button, but does not display the gifs for the input
-
-
 // variables
-var topicsArr = ["Hockey","Basketball", "Soccer", "Football", "Baseball"];
+var topicsArr = ["Hockey","Basketball", "Soccer", "Formula 1", "Autocross", "X Games", "Motocross"];
 var gifRating = "PG-13";
-var searchText;
 var queryURL;
 var gifLimit = "10"
 
 // function for displaying gifs
-
 displayGifs();
 function displayGifs(searchInput) {
 $("#gif-view-left").empty();
 $("#gif-view-right").empty();
-
-// searchText = $(this).attr("data-name");
 
 queryURL = "https://api.giphy.com/v1/gifs/search";
 queryURL += "?" + $.param ({
@@ -108,7 +100,10 @@ $("#search-button").on("click", function(event) {
 });
 
 // run displayGif variable when gif button is clicked
-$(document).on("click", ".gif-btn", displayGifs);
+$(document).on("click", ".gif-btn", function(){
+  var gifButton = $(this).attr("data-name")
+  displayGifs(gifButton);
+});
   
 // on click function to change the image between still and animated
 $(document).on("click", ".gif", function() {
