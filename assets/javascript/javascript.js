@@ -9,9 +9,8 @@
 // remove previous gifs and replace with new ones
 
 
-// Two problems so far:
-//#1 -  When there is search input, it adds the button, but does not display the gifs for the input
-//#2 - if a button is clicked, the old gifs do not disappear even though there is a .empty()
+// Two problems:
+//#1 - When there is search input, it adds the button, but does not display the gifs for the input
 
 
 // variables
@@ -25,6 +24,7 @@ var gifLimit = "10"
 
 displayGifs();
 function displayGifs() {
+$("#gif-view").empty();
 
 searchText = $(this).attr("data-name");
 
@@ -69,7 +69,6 @@ $.ajax({
 function renderButtons() {
 // empties other gifs on page and adds a button for what was just searched/whatever button was clicked
   $("#gif-buttons").empty();
-  $("#gif-view").empty();
 
 // adds buttons to top of page
   for (var i = 0; i < topicsArr.length; i++) {
@@ -82,16 +81,22 @@ function renderButtons() {
 $("#search-button").on("click", function(event) {
   event.preventDefault();
 
-  var gif = $("#search-input").val();
+  var gif = $("#search-input").val().trim();
 
-  topicsArr.push(gif);
+  if (gif === "") {
+    alert("Search for something!")
+  }
+
+  else {
+    topicsArr.push(gif);
+  }
 
   renderButtons();
-
+  
 });
 
 // run displayGif variable when gif button is clicked
-$(document).on("click", ".gif-btn", displayGifs)
+$(document).on("click", ".gif-btn", displayGifs);
   
 // on click function to change the image between still and animated
 $(document).on("click", ".gif", function() {

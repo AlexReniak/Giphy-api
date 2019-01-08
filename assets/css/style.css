@@ -10,3 +10,10 @@ img {
   width: 200px;
   margin: 10px;
 }
+
+button {
+  border: solid black 1px;
+  margin: 5px;
+  background: blue;
+  color: white;
+}
